@@ -3,5 +3,23 @@ body {
 }
 #screen {
 	background-color: white;
-	border: 3px solid red;
+}
+#header {
+	background-color: red;
+}
+#side-right {
+	float: right;
+	background-color: blue;
+}
+#side-left {
+	margin-top: -20px;
+	float: left;
+	background-color: green;
+}
+#bottom {
+	margin-top: -22px;
+	background-color: purple;
+}
+#content {
+	margin-top: -20px;
 }
