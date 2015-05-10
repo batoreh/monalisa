@@ -1,25 +1,71 @@
 body {
-	background-color: black;
+	background-color: #003454;
 }
 #screen {
 	background-color: white;
+	margin-left: auto;
+	margin-right:auto;
+	margin-top: 0px;
+	border-top: 1px solid grey;
 }
+#content {
+	width: 60%;
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 10px;
+	background-color: white;
+	border-radius: 10px;
+	border: 2px solid red;
+}
+
 #header {
-	background-color: red;
+	height: 85px;
+	width: 60%;
+	background-color: white;
+	border-radius: 5px;
+	margin-right: auto;
+	margin-left: auto;
+}
+
+.button-menu{
+	padding: 5px 5px 5px 5px;
+	margin-top: 10px;
+	margin-left: 10px;
+	margin-right: 10px;
+	float: left;
+	background-color: white;
+}
+#subtitle{
+	font-style: italic;
+	float: left;
+	margin-top: 50px;
+}
+#title {
+	position: relative;
+	padding-top: 0px;
+	margin: 10px 10px 10px 10px;
+	border-right: 1px solid black;
+	padding-right: 10px;
+	
+}
+.float{
+	float:left;
+}
+.buttons{
+	padding-top: 30px;
+	margin-top: 30px;
 }
 #side-right {
+	position: relative;
 	float: right;
 	background-color: blue;
 }
 #side-left {
-	margin-top: -20px;
+	position: relative;
 	float: left;
 	background-color: green;
 }
 #bottom {
 	margin-top: -22px;
 	background-color: purple;
-}
-#content {
-	margin-top: -20px;
 }
