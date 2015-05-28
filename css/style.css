@@ -9,7 +9,6 @@ body {
 	border-top: 1px solid grey;
 }
 #content {
-	width: 60%;
 	margin-left: auto;
 	margin-right: auto;
 	margin-top: 10px;
@@ -39,6 +38,7 @@ body {
 	font-style: italic;
 	float: left;
 	margin-top: 50px;
+	color:black;
 }
 #title {
 	position: relative;
@@ -67,5 +67,5 @@ body {
 }
 #bottom {
 	margin-top: -22px;
-	background-color: purple;
+	background-color: #003456;
 }
