@@ -1,18 +1,19 @@
+var click;
+var color = '#119915';
+var width=6;
+var guidex;
+var guidey;
+
 addEventListener('DOMContentLoaded', initCanvas);
 addEventListener('DOMContentLoaded', function(){
 	var canvas = document.getElementById('screen');
 	var content = document.getElementById('content');
-	var sideLeft = document.getElementById('side-left');
-	var sideRight = document.getElementById('side-right');
-	var top = document.getElementById('header');
-	var bottom = document.getElementById('bottom');
 
-	canvas.setAttribute("width", screen.width-475);
+	content.setAttribute("width", screen.width-400);
+	content.setAttribute("height", screen.height-200);
+	canvas.setAttribute("width", screen.width-100);
 	canvas.setAttribute("height", screen.height-200);
-})
-var click;
-var tool=0;
-var width=0;
+});
 
 function initCanvas() {	
 	var canvas = document.getElementById('screen');
@@ -24,45 +25,42 @@ function initCanvas() {
 	canvas.addEventListener('mousemove', function(evt){
 		var position = getMousePos(canvas, evt);
 		//console.log('MOVINx:' + position.x + ' , y:' + position.y);
+		
 		if (click===true){
-			draw(ctx, position.x, position.y, tool, width);
+			draw(ctx, position.x, position.y, color, width);
 		}
 	});
 	canvas.addEventListener('mousedown', function(evt){
 		var position = getMousePos(canvas, evt);
-		draw(ctx, position.x, position.y, tool, width);
+		draw(ctx, position.x, position.y, color, width);
 		click = true;
 	});
 	canvas.addEventListener('mouseup', function(evt){
 		click = false;
+		guidex = NaN;
+		guidey = NaN;
 	});
 }
 
-
-function draw(ctx, positionX, positionY, tool, width) {
+function draw(ctx, positionX, positionY, color, width) {
 		//console.log('CLICKx:' + positionX + ' , y:' + positionY);
-		
-		if (tool===0) {
-			ctx.strokeStyle="#000000";
-			ctx.fillStyle="#000000";
-		} else if (tool===1){
-			ctx.strokeStyle="#009933";
-			ctx.fillStyle="#009933";
-		} else if (tool===2){
-			ctx.strokeStyle="#0099FF";
-			ctx.fillStyle="#0099FF";
-		} else if (tool===3){
-			ctx.strokeStyle="#FF0000";
-			ctx.fillStyle="#FF0000";
-		} else if (tool===4){
-			ctx.strokeStyle="#FFFFFF";
-			ctx.fillStyle="#FFFFFF"
-		}
+		ctx.lineWidth="8";
 		ctx.beginPath();
-		ctx.arc(positionX, positionY, 3, 0, 2 * Math.PI, false);
+		ctx.arc(positionX, positionY, 6, 0, 2 * Math.PI, false);
+		ctx.moveTo(guidex, guidey);
+		ctx.lineTo(positionX, positionY);
+		guidex = positionX;
+		guidey = positionY;
 		ctx.fill();
 		ctx.stroke();
 		ctx.closePath();
+}
+function changeColor(change) {
+	color = change.slice(1,7);
+}
+function changeWidth(change){
+
+	width = change;
 }
 function getMousePos(canvas, evt) { // get canvas and event to return the cordinates
     var rect = canvas.getBoundingClientRect();
