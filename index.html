@@ -1,27 +1,72 @@
-<html>
-<head>
-	<title>Monalisa</title>
-	<meta charset=utf-8>
-	<meta name=description content="tamagochi">
-	<meta name=viewport content="width=device-width, initial-scale=1">
-	<link rel="stylesheet" type="text/css" href="css/style.css">
-	<script src="scripts/builder.js" type="text/javascript" charset="utf-8"></script>
-</head>
-<body>
-	<div id="header">
-		<img class="float" id="title" src="img/title.png" alt="MonalisA">
-		<p id="subtitle"> a simple paint tool with HTML5 CANVAS + JavaScript</p>
-	</div>
-	<div id="content">
-	<select class="button-menu" name="color">
-		<option value="black">black</option>
-		<option value="green">green</option>
-		<option value="yellow">yellow</option>
-		<option value="blue">blue</option>
-		option
-	</select>
-	<canvas id="screen"> </canvas>
-	</div>
-	<div id="bottom"><h1>c</h1> </div>
-</body>
-</html>
+var click;
+var color = '#119915';
+var width=6;
+var guidex;
+var guidey;
+
+addEventListener('DOMContentLoaded', initCanvas);
+addEventListener('DOMContentLoaded', function(){
+	var canvas = document.getElementById('screen');
+	var content = document.getElementById('content');
+
+	content.setAttribute("width", screen.width-400);
+	content.setAttribute("height", screen.height-200);
+	canvas.setAttribute("width", screen.width-100);
+	canvas.setAttribute("height", screen.height-200);
+});
+
+function initCanvas() {	
+	var canvas = document.getElementById('screen');
+	var ctx = canvas.getContext('2d');
+	
+	canvas.addEventListener('mouseout', function(){
+		click=false;
+	});
+	canvas.addEventListener('mousemove', function(evt){
+		var position = getMousePos(canvas, evt);
+		//console.log('MOVINx:' + position.x + ' , y:' + position.y);
+		
+		if (click===true){
+			draw(ctx, position.x, position.y, color, width);
+		}
+	});
+	canvas.addEventListener('mousedown', function(evt){
+		var position = getMousePos(canvas, evt);
+		draw(ctx, position.x, position.y, color, width);
+		click = true;
+	});
+	canvas.addEventListener('mouseup', function(evt){
+		click = false;
+		guidex = NaN;
+		guidey = NaN;
+	});
+}
+
+function draw(ctx, positionX, positionY, color, width) {
+		//console.log('CLICKx:' + positionX + ' , y:' + positionY);
+		ctx.lineWidth="8";
+		ctx.beginPath();
+		ctx.arc(positionX, positionY, 6, 0, 2 * Math.PI, false);
+		ctx.moveTo(guidex, guidey);
+		ctx.lineTo(positionX, positionY);
+		guidex = positionX;
+		guidey = positionY;
+		ctx.fill();
+		ctx.stroke();
+		ctx.closePath();
+}
+function changeColor(change) {
+	color = change.slice(1,7);
+}
+function changeWidth(change){
+
+	width = change;
+}
+function getMousePos(canvas, evt) { // get canvas and event to return the cordinates
+    var rect = canvas.getBoundingClientRect();
+    
+    return {
+      x: evt.clientX - rect.left,
+      y: evt.clientY - rect.top
+    };
+}
