@@ -15,6 +15,19 @@ addEventListener('DOMContentLoaded', function(){
 	canvas.setAttribute("height", screen.height-200);
 });
 
+var inputColor = document.getElementById('inputColor');
+inputColor.addEventListener('onchange', function(evt){
+	var change = String(document.getElementById('color').value);
+	changeColor(change);
+});
+
+
+var width = document.getElementById('width');
+width.addEventListener('onchange', function(evt){
+	var change = document.getElementById('width').value;
+	changeWidth(change);
+});
+
 function initCanvas() {	
 	var canvas = document.getElementById('screen');
 	var ctx = canvas.getContext('2d');
@@ -44,14 +57,17 @@ function initCanvas() {
 
 function draw(ctx, positionX, positionY, color, width) {
 		//console.log('CLICKx:' + positionX + ' , y:' + positionY);
-		ctx.lineWidth="8";
+		ctx.lineWidth= width;
 		ctx.beginPath();
-		ctx.arc(positionX, positionY, 6, 0, 2 * Math.PI, false);
+		ctx.arc(positionX, positionY, 0.1, 0, 2 * Math.PI, false);
 		ctx.moveTo(guidex, guidey);
 		ctx.lineTo(positionX, positionY);
 		guidex = positionX;
 		guidey = positionY;
+		console.log(color);
+		ctx.fillStyle="#"+color;
 		ctx.fill();
+		ctx.strokeStyle="#"+color;
 		ctx.stroke();
 		ctx.closePath();
 }
@@ -59,8 +75,8 @@ function changeColor(change) {
 	color = change.slice(1,7);
 }
 function changeWidth(change){
-
 	width = change;
+	console.log(change);
 }
 function getMousePos(canvas, evt) { // get canvas and event to return the cordinates
     var rect = canvas.getBoundingClientRect();
