@@ -8,14 +8,18 @@
 	<script src="scripts/builder.js" type="text/javascript" charset="utf-8"></script>
 </head>
 <body>
-	<header id="header" class="">
-		<h2>MonalisA</h2>
-	</header>
-	<div id="side-left"> <h1>a</h1>	</div>
-	<div id="side-right"> <h1>b</h1> </div>
+	<div id="header">
+		<img class="float" id="title" src="img/title.png" alt="MonalisA">
+		<p id="subtitle"> a simple paint tool with HTML5 CANVAS + JavaScript</p>
+	</div>
 	<div id="content">
+
+	<input onchange="changeWidth(this.value);" type="range" min="1" max="20" id="width" class="button-menu"> 
+	
+
+	<input type="color" name="color" id="inputColor" class="button-menu" onchange="changeColor(this.value);">
 	<canvas id="screen"> </canvas>
 	</div>
-	<div id="bottom"><h1> c </h1> </div>
+	<div id="bottom"><p id="subtitle">Developed by Neto "Krudora" Guimar&atilde;es</p> </div>
 </body>
 </html>
