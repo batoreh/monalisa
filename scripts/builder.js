@@ -21,6 +21,8 @@ function initCanvas() {
 	
 	canvas.addEventListener('mouseout', function(){
 		click=false;
+		guidex= NaN;
+		guidey= NaN;
 	});
 	canvas.addEventListener('mousemove', function(evt){
 		var position = getMousePos(canvas, evt);
