@@ -18,7 +18,7 @@ addEventListener('DOMContentLoaded', function(){
 function initCanvas() {	
 	var canvas = document.getElementById('screen');
 	var ctx = canvas.getContext('2d');
-	
+	var clear = document.getElementById('clearCanvas');
 	canvas.addEventListener('mouseout', function(){
 		click=false;
 		guidex= NaN;
@@ -42,18 +42,23 @@ function initCanvas() {
 		guidex = NaN;
 		guidey = NaN;
 	});
+	clear.addEventListener('click', function(evt){
+		ctx.clearRect(0,0,canvas.width, canvas.height);
+	});
 }
 
 function draw(ctx, positionX, positionY, color, width) {
 		//console.log('CLICKx:' + positionX + ' , y:' + positionY);
-		ctx.lineWidth="8";
+		ctx.lineWidth=width;
 		ctx.beginPath();
-		ctx.arc(positionX, positionY, 6, 0, 2 * Math.PI, false);
+		ctx.arc(positionX, positionY, 0.2, 0, 2 * Math.PI, false);
 		ctx.moveTo(guidex, guidey);
 		ctx.lineTo(positionX, positionY);
 		guidex = positionX;
 		guidey = positionY;
+		ctx.fillStyle = "#"+color;
 		ctx.fill();
+		ctx.strokeStyle = "#"+color;
 		ctx.stroke();
 		ctx.closePath();
 }
@@ -64,6 +69,7 @@ function changeWidth(change){
 
 	width = change;
 }
+
 function getMousePos(canvas, evt) { // get canvas and event to return the cordinates
     var rect = canvas.getBoundingClientRect();
     
