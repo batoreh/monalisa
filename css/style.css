@@ -55,6 +55,9 @@ a{
 .canvas{
 	background-color: white;
 }
+.canvas:hover{
+	cursor: crosshair;
+}
 #div-color{
 	margin-left: 20px;
 	border-radius: 50%;
