@@ -1,0 +1,52 @@
+.controls{
+	position: relative;
+	display: block;
+	height: 50px;
+	width: 100%;
+	background-color: #39688c;
+}
+.button{
+	margin-left: 30px;
+	display: inline-block;
+	background-color: white;
+}
+.canvas-container{
+	display: block;
+	position: relative;
+	width: 900px;
+	height: 650px;
+	margin: 0px auto 100px auto;
+	box-sizing: border-box;
+	border-radius: 5px;
+	overflow: hidden;
+	box-shadow: 1px 1px 5px #39688c;
+}
+.canvas{
+	background-color: white;
+}
+#div-color{
+	margin-left: 20px;
+	border-radius: 50%;
+	border: 1px black solid;
+	width: 30px;
+	height: 30px;
+}
+#input-color{
+	opacity: 0;
+}
+#input-width{
+	margin-top: 15px;
+}
+input[type="button"]{
+	top: -5px;
+}
+.buttons{
+	position: relative;
+	display: inline-block;
+	margin-left: 5px;
+	margin: 5px 0px 4px 5px;
+	padding: 5px;
+	border: none;
+	border-radius: 5px;
+	box-sizing: border-box;
+}
