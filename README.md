@@ -1,9 +1,13 @@
 # monalisa
-a engine of a paint tool with HTML5 Canvas and JavaScript. 
+a engine of a paint tool with HTML5 Canvas and JavaScript.
 
-You can use a live demo and save your draw [here](http://blog.netoguimaraes.com.br/monalisa). But if you want to add this to some project, you can do it too. Follow the instructions.
+You can use a live demo and save your draw [here](http://blog.netoguimaraes.com.br/monalisa). 
 
 <img src="https://github.com/netoguimaraes/monalisa/blob/master/mona_lisa.jpg" alt="Drawing" width="300" height="auto" />
+
+But if you want to add this to some project, you can do it too. Follow the instructions below.
+
+
 
 ## Using in third party projects
 
