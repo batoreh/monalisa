@@ -1,7 +1,7 @@
 {
-  "name": "monalisa",
+  "name": "monalisa-canvas",
   "version": "0.1.0",
-  "private": true,
+  "private": false,
   "dependencies": {
     "react": "^16.6.1",
     "react-dom": "^16.6.1",
