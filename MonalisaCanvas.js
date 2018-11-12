@@ -119,5 +119,3 @@ class MonalisaCanvas extends Component {
     );
   }
 }
-
-export default MonalisaCanvas;

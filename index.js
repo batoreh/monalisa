@@ -1,3 +1,2 @@
-import MonalisaCanvas from 'src/MonalisaCanvas';
-
+import MonalisaCanvas from "./MonalisaCanvas";
 export default MonalisaCanvas;
